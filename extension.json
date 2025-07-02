@@ -1,0 +1,14 @@
+{
+    "version": "0.0.1",
+    "apiVersion": "1.0.0",
+    "author": "Tlatonf",
+    "description": "High-level SPI protocol analyzer for the ENC28J60 Ethernet controller.",
+    "name": "ENC28J60 SPI Transaction Analyzer",
+    "extensions": {
+        "SPI ENC28J60": {
+            "type": "HighLevelAnalyzer",
+            "entryPoint": "enc28j60_analyzer.Hla"
+        }
+    }
+}
+

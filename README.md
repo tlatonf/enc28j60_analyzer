@@ -1,2 +1,2 @@
-# enc28j60_analyzer
-High-level SPI protocol analyzer for the ENC28J60 Ethernet controller
+# ENC28J60 SPI Transaction Analyzer
+*__ This section will be updated soon when the author has more free time.*
