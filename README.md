@@ -1,6 +1,6 @@
 # ENC28J60 SPI Transaction Analyzer
 
-<img src="./img/image1.png" width="100%">
+<img src="./img/image1.png" width="100%" align="center">
 
 
 
@@ -24,7 +24,7 @@ The **ENC28J60 SPI Transaction Analyzer** is a high-level protocol extension for
 
 - And that’s it - simple as that!
 
-  <img src="./img/image3.png" width="50%">
+  <img src="./img/image3.png" width="50%" align="center">
 
   
 
@@ -34,25 +34,25 @@ The **ENC28J60 SPI Transaction Analyzer** is a high-level protocol extension for
 
 - Then, add `SPI ENC28J60` as a new **High-Level Analyzer**.
 
-  <img src="./img/image4.png" width="70%">
+  <img src="./img/image4.png" width="70%" align="center">
 
   
 
 - When the **SPI ENC28J60 Settings** window appears, set **Input Analyzer** to the `SPI` analyzer you just added.
 
-  <img src="./img/image5.png" width="70%">
+  <img src="./img/image5.png" width="70%"  align="center">
 
   
 
 - If everything is set up correctly, you should see decoded results like the example below:
 
-  <img src="./img/image6.png" width="100%">
+  <img src="./img/image6.png" width="100%" align="center">
 
 
 
 * This is a tip for you: *To make it easier to view the decoded results, it’s recommended to disable the `SPI` analyzer’s output in the Data section.*
 
-  <img src="./img/image7.png" width="50%">
+  <img src="./img/image7.png" width="50%" align="center">
 
   
 
@@ -60,7 +60,7 @@ The **ENC28J60 SPI Transaction Analyzer** is a high-level protocol extension for
 
 * The ENC28J60 uses four register banks to organize its control registers. All banks share the **same address space**, and the **active bank** is determined by the value set in the **ECON1 register** *(see [Section 3.0 Memory Organization](https://ww1.microchip.com/downloads/en/devicedoc/39662c.pdf) for more details)*.
 
-<img src="./img/image2.png" width="70%">
+<img src="./img/image2.png" width="70%" align="center">
 
 * The **label of the register being accessed** is determined by looking up the `argument` together with the `current_bank`.
 * This extension automatically sets the `current_bank` to **BANK0** at two points: (1) when the capture starts, and (2) whenever a soft-reset command is detected.
