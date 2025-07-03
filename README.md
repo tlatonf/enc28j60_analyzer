@@ -1,6 +1,6 @@
 # ENC28J60 SPI Transaction Analyzer
 
-<img src="./img/image1.png" width="70%">
+<img src="./img/image1.png" width="100%">
 
 
 
@@ -65,22 +65,3 @@ The **ENC28J60 SPI Transaction Analyzer** is a high-level protocol extension for
 * The **label of the register being accessed** is determined by looking up the `argument` together with the `current_bank`.
 * This extension automatically sets the `current_bank` to **BANK0** at two points: (1) when the capture starts, and (2) whenever a soft-reset command is detected.
 * **THEREFORE, IF YOU START A CAPTURE AT THE WRONG MOMENT, ALL DECODED DATA FROM THAT POINT ONWARD MAY BE INCORRECT. BE ESPECIALLY CAREFUL WITH THIS CASE!**
-
-
-
----
-
-
-
-> **What's New !!!**
->
-> **v0.0.2 (latest)** 
->
-> - Updated README for better documentation.
-> - Fixed a bug where some register labels were not displayed correctly.
-> - Improved the way data transfers are presented.
->
-> **v0.0.1**
->
-> - Initial release.
-> - Basic support for decoding SPI transactions.
