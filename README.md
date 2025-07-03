@@ -1,6 +1,8 @@
 # ENC28J60 SPI Transaction Analyzer
 
-![](./img/image1.png)
+<img src="./img/image1.png" width="70%">
+
+
 
 # Overview
 
@@ -10,9 +12,9 @@ The **ENC28J60 SPI Transaction Analyzer** is a high-level protocol extension for
 
 
 
-# Install and Configue
+# How to use
 
-<u>**Install**</u>
+## Install
 
 - Search for `ENC28J60 SPI Transaction Analyzer` in the **Extensions** tab *(you’ll find it in the right-hand sidebar)*.
 
@@ -22,35 +24,63 @@ The **ENC28J60 SPI Transaction Analyzer** is a high-level protocol extension for
 
 - And that’s it - simple as that!
 
-  ![](./img/image3.png)
+  <img src="./img/image3.png" width="50%">
 
-**<u>Configue</u>**
+  
 
-- This extension is built on top of the **default SPI protocol analyzer**.
-- First, add the built-in **SPI analyzer** to your capture.
-- Then, add `"SPI ENC28J60"` as a new high-level analyzer.
-- In the `"SPI ENC28J60 Settings"` window:
-  - Set **Input Analyzer** to the SPI analyzer you just added.
-- If everything is set correctly, decoded SPI transactions will appear with:
-  - Command names
-  - Register labels
-  - Data bytes
-  - DUMMY reads (as defined in the ENC28J60 spec)
+## Configue
 
-> 💡 Tip: To improve readability, consider **disabling the default SPI analyzer** in the Data table
+- First, add the built-in `SPI` analyzer to your capture, as this extension builds on top of it.
+
+- Then, add `SPI ENC28J60` as a new **High-Level Analyzer**.
+
+  <img src="./img/image4.png" width="70%">
+
+  
+
+- When the **SPI ENC28J60 Settings** window appears, set **Input Analyzer** to the `SPI` analyzer you just added.
+
+  <img src="./img/image5.png" width="70%">
+
+  
+
+- If everything is set up correctly, you should see decoded results like the example below:
+
+  <img src="./img/image6.png" width="100%">
 
 
 
-# Warning: Register Bank Awareness
+* This is a tip for you: *To make it easier to view the decoded results, it’s recommended to disable the `SPI` analyzer’s output in the Data section.*
 
-The ENC28J60 uses four register banks to organize control registers. Many registers share the same address across banks. The active bank is selected via bits [1:0] of the ECON1 register (see Section 3.0 "Memory Organization" in the datasheet).
+  <img src="./img/image7.png" width="50%">
 
-![](./img/image2.png)
+  
 
-This extension infers the current register bank using the following assumptions:
+# [Warning] Incorrect Capture Timing
 
-- The current bank is assumed to be Bank 0 at the start of a capture.
-- The bank is also reset to Bank 0 whenever a Soft Reset (SR) command is issued.
+* The ENC28J60 uses four register banks to organize its control registers. All banks share the **same address space**, and the **active bank** is determined by the value set in the **ECON1 register** *(see [Section 3.0 Memory Organization](https://ww1.microchip.com/downloads/en/devicedoc/39662c.pdf) for more details)*.
 
-> 🛑 If your logic capture does **not** begin at system startup or soft reset, the decoded register names may be incorrect, since bank selection might not be tracked accurately. Use caution when analyzing mid-session captures.
+<img src="./img/image2.png" width="70%">
 
+* The **label of the register being accessed** is determined by looking up the `argument` together with the `current_bank`.
+* This extension automatically sets the `current_bank` to **BANK0** at two points: (1) when the capture starts, and (2) whenever a soft-reset command is detected.
+* **THEREFORE, IF YOU START A CAPTURE AT THE WRONG MOMENT, ALL DECODED DATA FROM THAT POINT ONWARD MAY BE INCORRECT. BE ESPECIALLY CAREFUL WITH THIS CASE!**
+
+
+
+---
+
+
+
+> **What's New !!!**
+>
+> **v0.0.2 (latest)** 
+>
+> - Updated README for better documentation.
+> - Fixed a bug where some register labels were not displayed correctly.
+> - Improved the way data transfers are presented.
+>
+> **v0.0.1**
+>
+> - Initial release.
+> - Basic support for decoding SPI transactions.
