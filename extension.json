@@ -1,5 +1,5 @@
 {
-    "version": "0.0.2",
+    "version": "0.0.3",
     "apiVersion": "1.0.0",
     "author": "Tlatonf",
     "description": "High-level SPI protocol analyzer for the ENC28J60 Ethernet controller.",
