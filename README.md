@@ -1,6 +1,6 @@
 # ENC28J60 SPI Transaction Analyzer
 
-<img src="./img/image1.png" width="100%" align="center">
+![](./img/image1.png)
 
 
 
@@ -12,55 +12,57 @@ The **ENC28J60 SPI Transaction Analyzer** is a high-level protocol extension for
 
 
 
+---
+
 # How to use
 
 ## Install
 
 - Search for `ENC28J60 SPI Transaction Analyzer` in the **Extensions** tab *(you’ll find it in the right-hand sidebar)*.
-
 - If the extension doesn't show up in the search results, it might be because your extension catalog is out of date. In that case, simply click `Check for Updates` under **More options** *(the icon with three dots)*.
-
 - Click the `Install` button to install the extension.
-
 - And that’s it - simple as that!
 
-  <img src="./img/image3.png" width="50%" align="center">
+![](./img/image3.png)
 
-  
+
 
 ## Configue
 
 - First, add the built-in `SPI` analyzer to your capture, as this extension builds on top of it.
-
 - Then, add `SPI ENC28J60` as a new **High-Level Analyzer**.
 
-  <img src="./img/image4.png" width="70%" align="center">
+![](./img/image4.png)
 
-  
+
 
 - When the **SPI ENC28J60 Settings** window appears, set **Input Analyzer** to the `SPI` analyzer you just added.
 
-  <img src="./img/image5.png" width="70%"  align="center">
+![](./img/image5.png)
 
-  
+
 
 - If everything is set up correctly, you should see decoded results like the example below:
 
-  <img src="./img/image6.png" width="100%" align="center">
+
+![](./img/image6.png)
 
 
 
 * This is a tip for you: *To make it easier to view the decoded results, it’s recommended to disable the `SPI` analyzer’s output in the Data section.*
 
-  <img src="./img/image7.png" width="50%" align="center">
 
-  
+![](./img/image7.png)
+
+
+
+---
 
 # [Warning] Incorrect Capture Timing
 
 * The ENC28J60 uses four register banks to organize its control registers. All banks share the **same address space**, and the **active bank** is determined by the value set in the **ECON1 register** *(see [Section 3.0 Memory Organization](https://ww1.microchip.com/downloads/en/devicedoc/39662c.pdf) for more details)*.
 
-<img src="./img/image2.png" width="70%" align="center">
+![](./image2.png)
 
 * The **label of the register being accessed** is determined by looking up the `argument` together with the `current_bank`.
 * This extension automatically sets the `current_bank` to **BANK0** at two points: (1) when the capture starts, and (2) whenever a soft-reset command is detected.
