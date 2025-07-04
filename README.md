@@ -62,7 +62,7 @@ The **ENC28J60 SPI Transaction Analyzer** is a high-level protocol extension for
 
 * The ENC28J60 uses four register banks to organize its control registers. All banks share the **same address space**, and the **active bank** is determined by the value set in the **ECON1 register** *(see [Section 3.0 Memory Organization](https://ww1.microchip.com/downloads/en/devicedoc/39662c.pdf) for more details)*.
 
-![](./image2.png)
+![](./img/image2.png)
 
 * The **label of the register being accessed** is determined by looking up the `argument` together with the `current_bank`.
 * This extension automatically sets the `current_bank` to **BANK0** at two points: (1) when the capture starts, and (2) whenever a soft-reset command is detected.
